@@ -192,13 +192,15 @@ function draw(){
    height:Math.max(.8,Math.abs(Y(o)-Y(c))),fill:col}));
  }
  for(const e of eps){
-  const [,x,b,,dir,,expx]=e;
-  // TURN direction is the opposite of the episode direction
-  const isPeak = dir===1;
-  const col=isPeak?C.peak:C.trough, y=Y(expx);
-  s.appendChild(el('line',{x1:X(x),x2:X(b),y1:y,y2:y,stroke:col,'stroke-width':1,
+  const [a,,b,,dir,anchor_px]=e;
+  // the CONFIRMED pivot on this row is its ANCHOR, not its (still-forming) extreme -
+  // an anchor's type is the OPPOSITE of the episode's own direction: an up-leg
+  // (dir=+1) is anchored at the trough that started it, not the peak it's chasing.
+  const isPeak = dir===-1;
+  const col=isPeak?C.peak:C.trough, y=Y(anchor_px);
+  s.appendChild(el('line',{x1:X(a),x2:X(b),y1:y,y2:y,stroke:col,'stroke-width':1,
     'stroke-dasharray':'3 3',opacity:.75}));
-  s.appendChild(el('circle',{cx:X(x),cy:y,r:4.5,fill:'none',stroke:col,'stroke-width':2}));
+  s.appendChild(el('circle',{cx:X(a),cy:y,r:4.5,fill:'none',stroke:col,'stroke-width':2}));
   s.appendChild(el('circle',{cx:X(b),cy:y,r:3.2,fill:col}));
  }
  const f=D.frontier.find(r=>String(r.k)===kk)||{};
