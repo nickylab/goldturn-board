@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gold Turn Engine — Lab</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔬</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FDFDFC;--surface:#F4F6F5;--ink:#14181A;--mute:#5C666B;--faint:#9AA5AA;
+ --line:#DDE3E2;--trough:#17706B;--peak:#B04A38;--dial:#2E5E8A;--brass:#C89A2B}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.65 "Public Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.mono{font-family:"IBM Plex Mono",monospace}
+.wrap{max-width:880px;margin:0 auto;padding:56px 24px 72px}
+.eyebrow{font:600 11.5px/1 "Public Sans";letter-spacing:.22em;text-transform:uppercase;color:var(--dial)}
+h1{font:600 44px/1.05 "Fraunces",Georgia,serif;margin:16px 0 0;letter-spacing:-.02em}
+.stand{font:400 19px/1.5 "Fraunces",Georgia,serif;color:var(--mute);max-width:58ch;margin:14px 0 0}
+.grid{display:grid;gap:16px;margin-top:38px}
+a.card{display:block;border:1px solid var(--line);border-radius:5px;padding:22px 24px;
+ text-decoration:none;color:inherit;background:var(--bg);transition:border-color .15s,transform .15s}
+a.card:hover{border-color:var(--dial);transform:translateY(-1px)}
+a.card h2{font:600 21px/1.25 "Fraunces",Georgia,serif;margin:0}
+a.card p{margin:8px 0 0;color:var(--mute);font-size:14.5px;line-height:1.6;max-width:66ch}
+.tag{display:inline-block;font:600 10px/1 "Public Sans";letter-spacing:.12em;text-transform:uppercase;
+ padding:5px 9px;border-radius:3px;margin-bottom:11px}
+.t1{background:rgba(46,94,138,.11);color:var(--dial)}
+.t2{background:rgba(23,112,107,.12);color:var(--trough)}
+.t3{background:rgba(200,154,43,.16);color:#8A6712}
+.note{margin-top:34px;border:1px solid var(--line);border-left:3px solid var(--brass);
+ background:var(--surface);border-radius:3px;padding:18px 22px;font-size:14.5px;line-height:1.65;color:var(--mute)}
+.note b{color:var(--ink)}
+footer{margin-top:52px;padding-top:20px;border-top:1px solid var(--line);color:var(--faint);font-size:13px;line-height:1.75}
+@media(max-width:640px){h1{font-size:31px}.wrap{padding:36px 18px 48px}}
+</style></head><body>
+<div class="wrap">
+<div class="eyebrow">Gold Turn Engine</div>
+<h1>The Lab</h1>
+<p class="stand">Working instruments for the gold turn-detection engine. Every figure is
+computed leak-free — nothing uses information from after the moment it would have printed.</p>
+
+<div class="grid">
+
+<a class="card" href="how-a-pivot-is-made.html">
+ <span class="tag t1">Start here</span>
+ <h2>How a Pivot Is Made</h2>
+ <p>What actually defines a turn: the ATR-retracement rule, stepped through the arithmetic on a
+ real reversal, then a live dial so you can watch pivots appear and vanish as the threshold moves.
+ Ends on the trade-off that has to be chosen — more pivots, or more certainty.</p>
+</a>
+
+<a class="card" href="pivot-lab.html">
+ <span class="tag t2">Instrument</span>
+ <h2>The Pivot Lab</h2>
+ <p>No model, no score, no threshold — just the tracker's own pivots on the daily chart, with
+ <span class="mono">k</span> adjustable from 0 to 5. For looking at the raw sample definition
+ before anything scores it.</p>
+</a>
+
+<a class="card" href="honest-console.html">
+ <span class="tag t2">Instrument</span>
+ <h2>The Honest Console</h2>
+ <p>The full lab rebuilt on leak-free flags: every gate the engine exposes, a complete trade
+ ledger, and the confusion matrix. Now also carries the <b>five v1.5 production candidates</b> —
+ select one and the chart and ledger replay that candidate's exact signal set.</p>
+</a>
+
+<a class="card" href="../">
+ <span class="tag t3">Live</span>
+ <h2>The Board</h2>
+ <p>The production board — current state, open position and recent prints. Updated by the live
+ runner, not by hand.</p>
+</a>
+
+</div>
+
+<div class="note">
+<b>On reading these.</b> Judge candidate performance on the <b>ex-2026</b> column wherever it
+appears. 2026 is eight months of an exceptional run and dominates every full-period total —
+several settings that look transformative on the headline number are ordinary once it is removed.
+<br><br>
+<b>Nothing here is a recommendation to trade.</b> These are research instruments for one
+person's own system, published so that the numbers can be checked rather than taken on trust.
+</div>
+
+<footer>
+Leak discipline: features are validated against a per-seal truncated rebuild; model weights and
+firing thresholds, where refit, come from prior years only with a 180-day embargo on training
+labels. Backtested results are not indicative of future performance.
+</footer>
+</div></body></html>
