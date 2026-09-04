@@ -538,7 +538,7 @@ function paint(){
     `<div class="tile">max DD $/oz · closed equity<b class="negnum">${mdd.toFixed(1)}</b></div>`;
   document.getElementById("cmsect").style.display=CM?"":"none";
   document.getElementById("booksub").textContent = ENGINE==="structure"
-    ? "v1.8 book: long from each trough confirmation at the next open, top-call at alpha×ATR retrace with a one-bar no-new-high confirm, stop at the stop price, violence prints at the print's close. Range filters by entry date; the engine always runs from 2015-01-05."
+    ? "v2.0 book: long from each trough confirmation at the next open, top-call at alpha×ATR retrace with a one-bar no-new-high confirm, stop at the stop price, violence prints at the print's close. Range filters by entry date; the engine always runs from 2015-01-05."
     : "Hold until the opposite print; the stop sits at the pivot. Entries at the print's session close — no profit target, no timeout.";
   const cm=(n,l,cls)=>`<div class="cmcell"><div class="n ${cls||""}">${n}</div><div class="l">${l}</div></div>`;
   if(CM) document.getElementById("cm").innerHTML =
@@ -739,7 +739,7 @@ cv.addEventListener("pointermove",ev=>{
       html+=`<br><b>ENTRY GATED</b> by ${why.join(" and ")||"a gate"} — exits only`;
     }
     if(f.role==="confirm") html+=`<br><b>confirmation</b> — holding since ${f.since}`;
-    if(f.role&&f.role.startsWith("v18-")) html+=`<br><b>v1.8 input</b>: ${f.role==="v18-acc"?"long accelerator (a fired long print)":
+    if(f.role&&f.role.startsWith("v18-")) html+=`<br><b>structure-engine input</b>: ${f.role==="v18-acc"?"long accelerator (a fired long print)":
       f.role==="v18-vio"?"violence print (exit a long at the close; crash-short when the ATR regime is hot)":
       "death-gate corroboration (a fired short print with death ≥ q80 opens the top-call's short)"}`;
     html+=`<br>outcome: ${f.real?"<b>real turn</b>":(f.paid?"not the turn, but paid ≥3%":"false alarm")}`+
